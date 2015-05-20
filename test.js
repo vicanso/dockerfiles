@@ -1,9 +1,9 @@
 var Etcd = require('node-etcd');
-var etcd = new Etcd('127.0.0.1');
+var etcd = new Etcd('192.168.2.1', 4001);
 var co = require('co');
 var _ = require('lodash');
 var key = 'varnish_backend';
-var ttl = 600;
+var ttl = 3000;
 
 // etcd.set("key", "value", { ttl: 60 }, console.log);
 
@@ -14,14 +14,14 @@ var ttl = 600;
 
 function *postBackend(data){
   var result;
-  try{
-    result = yield function(done){
-      etcd.get(key, done);
-    };
-  }catch(err){
-    console.error(err);
-    result = null;
-  }
+  // try{
+  //   result = yield function(done){
+  //     etcd.get(key, done);
+  //   };
+  // }catch(err){
+  //   console.error(err);
+  //   result = null;
+  // }
   var keys = _.keys(data).sort();
   var sortData = {};
   _.forEach(keys, function(key){
@@ -59,9 +59,9 @@ function *getBackend(){
 co(function *(){
   yield postBackend({
     ip : '10.2.110.203',
-    port : 8092,
-    prefix : '/portal',
-    name : 'ytjui'
+    port : 8188,
+    prefix : '/mobile',
+    name : 'ytjuimobile'
   });
   // yield postBackend({
   //   ip : '10.2.110.211',
