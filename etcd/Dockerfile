@@ -4,7 +4,7 @@ FROM vicanso/base
 
 MAINTAINER "vicansocanbico@gmail.com"
 
-RUN wget https://github.com/coreos/etcd/releases/download/v2.0.11/etcd-v2.0.11-linux-amd64.tar.gz && \
+RUN wget http://jt-service.oss-cn-shenzhen.aliyuncs.com/etcd-v2.0.11-linux-amd64.tar.gz && \
   tar -xzvf etcd-v2.0.11-linux-amd64.tar.gz && \
   mv etcd-v2.0.11-linux-amd64 etcd && \
   rm etcd-v2.0.11-linux-amd64.tar.gz
