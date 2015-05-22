@@ -6,9 +6,9 @@ FROM vicanso/io.js
 MAINTAINER "vicansocanbico@gmail.com"
 
 RUN apt-get -y install haproxy && \
-  wget https://github.com/vicanso/generate-haproxy/archive/0.1.1.tar.gz && \
-  tar -xzvf 0.1.1.tar.gz && mv generate-haproxy-0.1.1 generate-haproxy && \
-  rm 0.1.1.tar.gz && \
+  wget https://github.com/vicanso/generate-haproxy/archive/0.1.2.tar.gz && \
+  tar -xzvf 0.1.2.tar.gz && mv generate-haproxy-0.1.2 generate-haproxy && \
+  rm 0.1.2.tar.gz && \
   cd generate-haproxy && npm install --production --registry=https://registry.npm.taobao.org && \
   apt-get clean
 

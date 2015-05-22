@@ -1,7 +1,7 @@
 # mongodb
 # VERSION 3.0.2
 
-FROM vicanso/base
+FROM vicanso/io.js
 
 MAINTAINER "vicansocanbico@gmail.com"
 
