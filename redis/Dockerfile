@@ -1,21 +1,11 @@
 # varnish
-# VERSION 3.0.1
+# VERSION 2.8.19
 
-FROM vicanso/base
+FROM vicanso/io.js
 
 MAINTAINER "vicansocanbico@gmail.com"
 
-RUN apt-get -y install make && \
-  apt-get -y install gcc && \
-  wget http://download.redis.io/releases/redis-3.0.1.tar.gz && \
-  tar -xzvf redis-3.0.1.tar.gz && \
-  cd /redis-3.0.1/deps/ && \
-  make hiredis jemalloc linenoise lua && \
-  cd .. && \
-  make && \
-  make install && \
-  cd .. && \
-  rm redis-3.0.1 -rf && \
-  rm redis-3.0.1.tar.gz && \
-  apt-get -y autoremove make && \
-  apt-get -y autoremove gcc
+RUN apt-get -y install redis-server
+
+
+CMD service redis-server start && pm2 logs
