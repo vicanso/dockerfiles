@@ -6,10 +6,6 @@ FROM vicanso/io.js
 MAINTAINER "vicansocanbico@gmail.com"
 
 RUN apt-get -y install varnish && \
-  wget https://github.com/vicanso/generate-varnish/archive/0.1.6.tar.gz && \
-  tar -xzvf 0.1.6.tar.gz && mv generate-varnish-0.1.6 generate-varnish && \
-  rm 0.1.6.tar.gz && \
-  cd generate-varnish && npm install --production --registry=https://registry.npm.taobao.org && \
-  apt-get clean
+  npm install generate-varnish --registry=https://registry.npm.taobao.org
 
-CMD service varnish start && cd /generate-varnish && pm2 start pm2.json && pm2 logs
+CMD service varnish start && cd /node_modules/generate-varnish && pm2 start pm2.json && pm2 logs

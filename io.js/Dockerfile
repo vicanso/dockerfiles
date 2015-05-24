@@ -5,7 +5,7 @@ FROM vicanso/base
 
 MAINTAINER "vicansocanbico@gmail.com"
 
-RUN wget https://iojs.org/dist/v2.0.2/iojs-v2.0.2.tar.gz && \
+RUN wget http://npm.taobao.org/mirrors/iojs/v2.0.2/iojs-v2.0.2.tar.gz && \
   tar -xzvf iojs-v2.0.2.tar.gz && \
   cd iojs-v2.0.2 && ./configure && make && make install && \
   cd / && rm /iojs-v2.0.2 -rf && rm /iojs-v2.0.2.tar.gz && \
