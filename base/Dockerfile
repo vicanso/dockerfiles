@@ -1,7 +1,7 @@
 # base
 # VERSION 0.0.1
 
-FROM ubuntu
+FROM ubuntu:15.10
 
 MAINTAINER "vicansocanbico@gmail.com"
 

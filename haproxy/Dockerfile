@@ -1,5 +1,5 @@
 # haproxy
-# VERSION 1.5.10
+# VERSION 1.5.12
 
 FROM vicanso/io.js
 
