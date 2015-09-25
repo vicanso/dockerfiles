@@ -1,0 +1,32 @@
+FROM ubuntu:15.10
+
+ADD ./sources.list /tmp/sources.list
+
+RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak \
+  && mv /tmp/sources.list /etc/apt/sources.list
+  
+  
+
+
+
+sources.list
+
+
+deb http://mirrors.aliyun.com/ubuntu/ wily main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ wily main restricted
+
+## Major bug fix updates produced after the final release of the
+## distribution.
+deb http://mirrors.aliyun.com/ubuntu/ wily-updates main restricted
+deb-src http://mirrors.aliyun.com/ubuntu/ wily-updates main restricted
+
+## Uncomment the following two lines to add software from the 'universe'
+## repository.
+## N.B. software from this repository is ENTIRELY UNSUPPORTED by the Ubuntu
+## team. Also, please note that software in universe WILL NOT receive any
+## review or updates from the Ubuntu security team.
+deb http://mirrors.aliyun.com/ubuntu/ wily universe
+deb-src http://mirrors.aliyun.com/ubuntu/ wily universe
+deb http://mirrors.aliyun.com/ubuntu/ wily-updates universe
+deb-src http://mirrors.aliyun.com/ubuntu/ wily-updates universe
+
