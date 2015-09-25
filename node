@@ -1,0 +1,12 @@
+FROM vicanso/ubuntu
+
+ENV NPM_CONFIG_LOGLEVEL info
+ENV NODE_VERSION 4.1.1
+
+RUN apt-get update \
+  && apt-get install curl -y \
+  && curl -SLO "http://npm.taobao.org/mirrors/node/v$NODE_VERSION/node-v$NODE_VERSION-linux-x64.tar.gz" \
+  && tar -xzf "node-v$NODE_VERSION-linux-x64.tar.gz" -C /usr/local --strip-components=1 \
+  && rm "node-v$NODE_VERSION-linux-x64.tar.gz"
+
+CMD [ "node" ]
