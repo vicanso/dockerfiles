@@ -2,7 +2,12 @@ FROM vicanso/node
 
 MAINTAINER "vicansocanbico@gmail.com"
 
-RUN apt-get update -y \
-  && apt-get install varnish -y
+RUN apt-get install apt-transport-https -y \
+	&& curl https://repo.varnish-cache.org/GPG-key.txt | apt-key add - \
+	&& echo "deb https://repo.varnish-cache.org/ubuntu/ trusty varnish-4.1" >> /etc/apt/sources.list.d/varnish-cache.list \
+	&& apt-get update \
+	&& apt-get install varnish -y
 
 EXPOSE 80
+
+CMD varnishd -f /etc/varnish/default.vcl -s malloc,128m -a 0.0.0.0:8080 -F
