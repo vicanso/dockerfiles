@@ -1,3 +1,5 @@
+# varnish 4.1.0
+
 FROM vicanso/node
 
 MAINTAINER "vicansocanbico@gmail.com"
@@ -8,6 +10,6 @@ RUN apt-get install apt-transport-https -y \
 	&& apt-get update \
 	&& apt-get install varnish -y
 
-EXPOSE 80
+EXPOSE 8080
 
 CMD varnishd -f /etc/varnish/default.vcl -s malloc,128m -a 0.0.0.0:8080 -F
