@@ -1,0 +1,20 @@
+path.data: /filebeat/data
+path.logs: /filebeat/logs
+filebeat:
+  # 最大可以攒够 1024 条数据一起发送出去
+  spool_size: 1024
+  # 否则每 5 秒钟也得发送>一次
+  idle_timeout: "5s"
+  # 文件读取位置记录文件，会放在当前工作目录下。所以如果你换一个工作目录执行 filebeat 会导致重复传输！
+  registry_file: ".filebeat"
+  # 有相同配置参数的可以归类为一个 prospector
+  prospectors:      
+    -
+      fields:
+        # 类似 logstash 的 add_fields
+        ownfield: "albi"  
+      paths:
+        # 指明读取文件的位置
+        - /logs/albi/*
+output.elasticsearch:
+  hosts: ["172.17.0.1:9200"]
