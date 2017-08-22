@@ -1,8 +1,0 @@
-FROM vicanso/node
-
-MAINTAINER "vicansocanbico@gmail.com"
-
-RUN apt-get update -y \
- && apt-get install haproxy -y
-
-EXPOSE 80
